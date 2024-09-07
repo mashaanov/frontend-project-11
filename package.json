@@ -1,0 +1,19 @@
+{
+  "name": "frontend-project-11",
+  "version": "1.0.0",
+  "description": "rss aggregator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mashaanov/frontend-project-11.git"
+  },
+  "author": "Maria Novikova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mashaanov/frontend-project-11/issues"
+  },
+  "homepage": "https://github.com/mashaanov/frontend-project-11#readme"
+}
