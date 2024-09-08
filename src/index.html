@@ -6,32 +6,30 @@
     <title>Rss Aggregator</title>
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <section class="container-fluid mt-0 py-4 bg-dark text-white">
-      <div class="row">
-        <div class="col-md-10 col-lg-8 mx-auto text-white">
-          <h1 class="display-3 mb-0">RSS агрегатор</h1>
-          <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-8">
+    <main class="flex-grow-1">
+      <section class="container-fluid bg-dark p-5">
+        <div class="row">
+          <div class="col-md-10 col-lg-8 mx-auto text-white">
+            <h1 class="display-3 mb-0">RSS агрегатор</h1>
+            <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
             <form action class="rss-form text-body">
               <div class="row">
-                <div class="col">
-                  <div class="form-floating">
-                    <label for="url-input">Ссылка RSS</label>
-                    <input name="url" id="url-input" autofocus required class="form-control w-100" placeholder="ccылка RSS" autocomplete="off"/>
+                  <div class="col">
+                    <div class="form-floating">
+                      <input name="url" id="url-input" autofocus required class="form-control w-100" placeholder="ccылка RSS" autocomplete="off"/>
+                      <label for="url-input">Ссылка RSS</label>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <button type="submit" class="h-100 btn btn-primary btn-lg px-sm-5">Добавить</button>
                   </div>
                 </div>
-                <div class="col-auto">
-                  <button type="submit" class="h-100 btn btn-primary btn-lg px-sm-5">Добавить</button>
-                </div>
-              </div>
-            </form>
-            <p class="text-muted mt-2 mb-0">Example: https://lorem-rss.hexlet.app/feed</p>
+              </form>
+              <p class="mt-2 mb-0 text-secondary">Пример: https://lorem-rss.hexlet.app/feed</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
     <script src="index.js"></script>
-  </body>
-</html>
+    </body>
+  </html>
