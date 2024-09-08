@@ -14,13 +14,17 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-8">
-            <form action="post" class="rss-form text-body">
-              <div class="flex-grow-1 me-2">
-                <label for="rss-url">Ссылка RSS</label>
-                <input type="text" id="rss-url" placeholder="ccылка RSS" class="form-control" />
-              </div>
-              <div class="col-auto">
-                <button type="submit" class="h-100 btn btn-primary btn-lg px-sm-5">Добавить</button>
+            <form action class="rss-form text-body">
+              <div class="row">
+                <div class="col">
+                  <div class="form-floating">
+                    <label for="url-input">Ссылка RSS</label>
+                    <input name="url" id="url-input" autofocus required class="form-control w-100" placeholder="ccылка RSS" autocomplete="off"/>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="h-100 btn btn-primary btn-lg px-sm-5">Добавить</button>
+                </div>
               </div>
             </form>
             <p class="text-muted mt-2 mb-0">Example: https://lorem-rss.hexlet.app/feed</p>
