@@ -1,12 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rss Aggregator</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <section class="container-fluid mt-0 py-4 bg-dark text-white">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto text-white">
+          <h1 class="display-3 mb-0">RSS агрегатор</h1>
+          <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <form action="post" class="rss-form text-body">
+              <div class="flex-grow-1 me-2">
+                <label for="rss-url">Ссылка RSS</label>
+                <input type="text" id="rss-url" placeholder="ccылка RSS" class="form-control" />
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="h-100 btn btn-primary btn-lg px-sm-5">Добавить</button>
+              </div>
+            </form>
+            <p class="text-muted mt-2 mb-0">Example: https://lorem-rss.hexlet.app/feed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="index.js"></script>
+  </body>
 </html>
