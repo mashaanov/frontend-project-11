@@ -1,13 +1,13 @@
 import path from 'path';
 import autoprefixer from 'autoprefixer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
 import { fileURLToPath } from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  mode: 'development',
+  mode: 'production',
   devtool: 'inline-source-map',
   entry: './src/index.js',
   output: {
