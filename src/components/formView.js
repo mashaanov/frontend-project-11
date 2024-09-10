@@ -67,6 +67,8 @@ const formView = () => {
   });
 
   formElement.addEventListener('submit', (e) => {
+    const { id, value } = e.target;
+    watchedState.form[id] = value;
     e.preventDefault();
     if (Object.keys(state.form.errors).length === 0) {
       state.form.processState = 'sending';
