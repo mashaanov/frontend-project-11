@@ -1,4 +1,7 @@
 import './styles.scss';
 import 'bootstrap';
+import formView from './components/formView.js';
 
-console.log('Приложение успешно работает!');
+document.addEventListener('DOMContentLoaded', () => {
+  formView();
+});
