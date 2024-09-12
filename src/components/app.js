@@ -1,6 +1,15 @@
 // eslint-disable-next-line max-len
 // const compose = (...funs) => (initialValue) => funs.reduceRight((acc, fn) => fn(acc), initialValue);
+import './styles.scss';
+import 'bootstrap';
+import onChange from 'on-change';
+import axios from 'axios';
+import i18next from 'i18next';
 import * as yup from 'yup';
+import resources from './locales/index.js';
+import render from './view.js';
+import validate from './validate.js';
+import parser from './parser.js';
 
 export const state = {
   form: {
@@ -15,7 +24,10 @@ export const state = {
 };
 
 const schema = yup.object({
-  name: yup.string().url('The link must be a valid URL').required('URL is required'),
+  name: yup
+    .string()
+    .url('The link must be a valid URL')
+    .required('URL is required'),
 });
 
 export const checkDuplicates = (formState, feeds) => {
@@ -26,7 +38,8 @@ export const checkDuplicates = (formState, feeds) => {
   return Promise.resolve({});
 };
 
-export const yupValidate = (formState) => schema.validate(formState.values, { abortEarly: false })
+export const yupValidate = (formState) => schema
+  .validate(formState.values, { abortEarly: false })
   .then(() => {})
   .catch((validationError) => {
     const errors = validationError.inner.reduce((acc, err) => {
@@ -36,10 +49,7 @@ export const yupValidate = (formState) => schema.validate(formState.values, { ab
     return Promise.reject(errors);
   });
 
-export const validate = (formState, feeds) => Promise.all([
-  yupValidate(formState),
-  checkDuplicates(formState, feeds),
-])
+export const validate = (formState, feeds) => Promise.all([yupValidate(formState), checkDuplicates(formState, feeds)])
   .then(() => ({}))
   .catch((errors) => {
     console.error('Errors in validate function:', errors);
