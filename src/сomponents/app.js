@@ -5,7 +5,7 @@ import _ from 'lodash';
 import i18next from 'i18next';
 import resources from '../locales/index.js';
 import render from './view.js';
-import validate from '../validate.js';
+import validate from './validate.js';
 import parser from '../parser.js';
 
 const defaultLanguage = 'ru';
@@ -33,7 +33,9 @@ const loadRss = (url, state) => getAxiosResponse(url)
       throw new Error(`urlDownloadError: ${url}`);
     }
     const parsedContent = parser(response.data.contents);
-    const { title, link, description, posts } = parsedContent;
+    const {
+      title, link, description, posts,
+    } = parsedContent;
     const feedId = _.uniqueId();
 
     state.contentValue.feeds.push({
@@ -139,7 +141,7 @@ export default () => {
       const watchedState = onChange(initialState, render(elements, initialState, i18nInstance));
 
       elements.form.addEventListener('input', (e) => {
-        const form = e.target.closest('form'); 
+        const form = e.target.closest('form');
         if (form) {
           const data = new FormData(form);
           const url = data.get('url').trim();
@@ -150,11 +152,13 @@ export default () => {
 
       elements.form.addEventListener('submit', (e) => {
         e.preventDefault();
-        validate(watchedState, watchedState.inputValue)
+
+        const { inputValue } = watchedState;
+        validate(inputValue)
           .then(() => {
             watchedState.valid = true;
             watchedState.process.processState = 'sending';
-            return loadRss(watchedState.inputValue, watchedState);
+            return loadRss(inputValue, watchedState);
           })
           .then(() => {
             watchedState.process.processState = 'success';
