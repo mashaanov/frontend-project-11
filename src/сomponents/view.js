@@ -125,9 +125,13 @@ const handleFinishWithError = (elements, i18nInstance, state) => {
 };
 
 const handleProcessState = (elements, processState, i18nInstance) => {
-  const { input, button } = elements;
+  const { input, button, feedback } = elements;
   switch (processState) {
     case 'filling':
+      input.classList.remove('is-invalid');
+      feedback.textContent = '';
+      input.disabled = false;
+      button.disabled = false;
       break;
     case 'success':
       handleSuccessFinish(elements, i18nInstance);
@@ -179,6 +183,7 @@ const renderOpenedPosts = (elements, state) => {
 };
 
 export default (elements, state, i18nInstance) => (path) => {
+  const { input } = elements;
   switch (path) {
     case 'process.processState':
       handleProcessState(elements, state, state.process.processState, i18nInstance);
@@ -197,6 +202,12 @@ export default (elements, state, i18nInstance) => (path) => {
       break;
     case 'visitedLinks':
       renderOpenedPosts(elements, state);
+      break;
+    case 'inputValue':
+      input.value = state.inputValue;
+      break;
+    case 'valid':
+      handleSuccessFinish(elements, i18nInstance);
       break;
     default:
       throw new Error(`Unknown path: ${path}`);

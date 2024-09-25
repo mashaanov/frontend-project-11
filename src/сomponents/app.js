@@ -50,9 +50,11 @@ const loadRss = (url, state) => getAxiosResponse(url)
     state.process.processState = 'success';
   })
   .catch((error) => {
+    const isNetworkError = error.response ? 'networkError' : 'urlDownloadError';
     state.valid = false;
-    state.process.error = error.response ? 'networkError' : 'urlDownloadError';
+    state.process.error = isNetworkError;
     state.process.processState = 'error';
+    console.error(`Error while loading RSS: ${error.message}`);
   });
 
 const updateRss = (state) => {
