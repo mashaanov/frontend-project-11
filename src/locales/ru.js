@@ -1,20 +1,18 @@
 export default {
   translation: {
-    feedbacks: {
-      feedbackSuccess: 'RSS успешно загружен',
-      feedbackWrongUrl: 'Ссылка должна быть валидным URL',
-      feedbackRepeat: 'RSS уже существует',
-      feedbackNoRSS: 'Ресурс не содержит валидный RSS',
-      feedbackEmpty: 'Не должно быть пустым',
-    },
-    posts: 'Посты',
-    feeds: 'Фиды',
-    buttons: {
-      addBtn: 'Добавить',
-      viewBtn: 'Просмотр',
+    loading: {
+      success: 'RSS успешно загружен',
     },
     errors: {
-      network: 'Ошибка сети',
+      exists: 'RSS уже существует',
+      required: 'Не должно быть пустым',
+      notURL: 'Ссылка должна быть валидным URL',
+      noRSS: 'Ресурс не содержит валидный RSS',
+      errNet: 'Ошибка сети',
+      unknown: 'Неизвестная ошибка. Что-то пошло не так.',
     },
+    feeds: 'Фиды',
+    posts: 'Посты',
+    preview: 'Просмотр',
   },
 };
